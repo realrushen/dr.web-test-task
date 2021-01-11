@@ -34,22 +34,21 @@ curl --location --request POST 'http://localhost:8080/storage/' \
 --form 'file=@"/home/username/path/to/file"'
 ```
 
-
 #### Download file endpoint
 ```shell script
 curl --location --request GET 'http://localhost:8080/storage/<hash>/'
 ```
+
 #### Delete file endpoint
 ```shell script
 curl --location --request DELETE 'http://localhost:8080/storage/<hash>/'
 ```
 
-##License
+## License
 Distributed under the MIT License.
 
-##Contact
+## Contact
 Aleksandr Karakchiev - realrushen@gmail.com
-
 Project Link: https://github.com/realrushen/dr.web-test-task
 
 
