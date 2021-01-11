@@ -1,5 +1,5 @@
 """
-ASGI config for site_engine project.
+ASGI config for site_engine2 project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

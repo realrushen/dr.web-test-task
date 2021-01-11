@@ -1,25 +1,18 @@
 from django.shortcuts import redirect
-from rest_framework import mixins
 from rest_framework import viewsets
 from rest_framework.parsers import MultiPartParser, FormParser
 
+from storage.mixins import CreateRetrieveDestroyModelMixin
 from storage.models import FileUpload
 from storage.serializers import FileUploadSerializer
 from storage.utils import is_directory_empty, remove_directory
 
 
-class FileUploadViewSet(viewsets.ModelViewSet):
-    """
-    A viewset for viewing and editing FileUpload instances.
-    """
-    queryset = FileUpload.objects.all()
-    serializer_class = FileUploadSerializer
-
-
-class UploadViewSet(mixins.CreateModelMixin,
-                    mixins.RetrieveModelMixin,
-                    mixins.DestroyModelMixin,
+class UploadViewSet(CreateRetrieveDestroyModelMixin,
                     viewsets.GenericViewSet):
+    """
+    Viewset that support only uploading, downloading and deleting files from storage
+    """
     queryset = FileUpload.objects.all()
     serializer_class = FileUploadSerializer
     parser_classes = [FormParser, MultiPartParser]

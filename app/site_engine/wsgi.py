@@ -1,5 +1,5 @@
 """
-WSGI config for site_engine project.
+WSGI config for site_engine2 project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
