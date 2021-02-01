@@ -3,11 +3,11 @@ version: '3.7'
 services:
   web:
     build: app/
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8080
     volumes:
       - ./app/:/usr/src/app/
     ports:
-      - 8000:8000
+      - 8080:8080
     env_file:
       - ./.env.dev
   db:
@@ -15,9 +15,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=drweb_django
-      - POSTGRES_PASSWORD=drweb_django
-      - POSTGRES_DB=drweb_django_dev
+      - POSTGRES_USER=dw_django
+      - POSTGRES_PASSWORD=dw_django
+      - POSTGRES_DB=dw_django_dev
 
 volumes:
   postgres_data:

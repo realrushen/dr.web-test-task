@@ -11,7 +11,7 @@ You need [python 3.8](https://www.python.org/downloads/), [docker](https://docs.
 
 1. Clone the repo
    ```shell script
-   git clone https://github.com/realrushen/dr.web-test-task.git
+   git clone https://github.com/realrushen/dw-test-task.git
    ```
 2. You can configure project settings in **.env.dev** for development build and **.env.prod, .env.prod.db** for production build. 
    By default `FRESH_START=1` env variable is set to flush db, make migrations and collect static files on startup.
@@ -33,10 +33,11 @@ You need [python 3.8](https://www.python.org/downloads/), [docker](https://docs.
 curl --location --request POST 'http://localhost:8080/storage/' \
 --form 'file=@"/home/username/path/to/file"'
 ```
+Maximum file size to upload in prod build is 100Mb. 
 
 #### Download file endpoint
 ```shell script
-curl --location --request GET 'http://localhost:8080/storage/<hash>/'
+curl --location --output - --request GET 'http://localhost:8080/storage/<hash>/'
 ```
 
 #### Delete file endpoint
@@ -49,7 +50,6 @@ Distributed under the MIT License.
 
 ## Contact
 Aleksandr Karakchiev - realrushen@gmail.com
-Project Link: https://github.com/realrushen/dr.web-test-task
 
 
 
