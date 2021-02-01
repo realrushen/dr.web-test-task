@@ -1,9 +1,10 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
 
 from storage.models import FileUpload
 
 
-class FileUploadSerializer(ModelSerializer):
-    class Meta:
-        model = FileUpload
-        fields = ('hash', 'file', 'uploaded_at')
+class FileUploadSerializer(serializers.Serializer):
+    hash = serializers.CharField(max_length=64, min_length=64, allow_null=True, required=False)
+
+    def create(self, validated_data):
+        return FileUpload.objects.create(file=self.initial_data.get('file'))
